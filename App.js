@@ -4,6 +4,7 @@ import { PetContextProvider } from "./context/PetContext";
 
 import Home from "./screens/Home";
 import AddPet from "./screens/AddPet";
+import Pet from "./components/addPet/Pet";
 
 const Stack = createNativeStackNavigator();
 

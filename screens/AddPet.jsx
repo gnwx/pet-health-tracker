@@ -2,13 +2,11 @@ import { StyleSheet, View } from "react-native";
 import React, { useState } from "react";
 import Step1 from "../components/addPet/Step1";
 import Step2 from "../components/addPet/Step2";
-import Dog from "../components/addPet/Dog/Dog";
-import DogLast from "../components/addPet/Dog/DogLast";
 import PetCreated from "../components/addPet/PetCreated";
-import Cat from "../components/addPet/Cat/Cat";
-import CatLast from "../components/addPet/Cat/CatLast";
+import Pet from "../components/addPet/Pet";
 
 const AddPet = ({ navigation }) => {
+  //form-steps
   const [step, setStep] = useState("step-1");
   //general
   const [petName, setPetName] = useState("");
@@ -22,6 +20,7 @@ const AddPet = ({ navigation }) => {
   const [dogLastWalk, setDogLastWalk] = useState("");
   const [dogLastVet, setDogLastVet] = useState("");
 
+  // cat
   const [catOftenFeed, setCatOftenFeed] = useState("");
   const [catOftenBoxChange, setCatOftenBoxChange] = useState("");
   const [catOftenVet, setCatOftenVet] = useState("");
@@ -29,51 +28,109 @@ const AddPet = ({ navigation }) => {
   const [catLastBoxChange, setCatLastBoxChange] = useState("");
   const [catLastVet, setCatLastVet] = useState("");
 
+  // bird
+  const [birdOftenFeed, setBirdOftenFeed] = useState("");
+  const [birdOftenCleanCage, setBirdOftenCleanCage] = useState("");
+  const [birdOftenVet, setBirdOftenVet] = useState("");
+  const [birdLastFeed, setBirdLastFeed] = useState("");
+  const [birdLastCleanCage, setBirdLastCleanCage] = useState("");
+  const [birdLastVet, setBirdLastVet] = useState("");
+
+  // fish
+  const [fishOftenFeed, setFishOftenFeed] = useState("");
+  const [fishOftenCleanTank, setFishOftenCleanTank] = useState("");
+  const [fishOftenVet, setFishOftenVet] = useState("");
+  const [fishLastFeed, setFishLastFeed] = useState("");
+  const [fishLastCleanTank, setFishLastCleanTank] = useState("");
+  const [fishLastVet, setFishLastVet] = useState("");
+
   return (
     <View>
-      {step === "step-1" && (
-        <Step1
-          setPetName={setPetName}
-          setPetAge={setPetAge}
-          petName={petName}
-          petAge={petAge}
-          setStep={setStep}
-        />
-      )}
+      {step === "step-1" && <Step1 setStep={setStep} />}
       {step === "step-2" && <Step2 setStep={setStep} />}
-      {step === "dog" && (
-        <Dog
-          setDogOftenFeed={setDogOftenFeed}
-          setDogOftenVet={setDogOftenVet}
-          setDogOftenWalk={setDogOftenWalk}
+      {step === "dog-first" && (
+        <Pet
+          petSetters={[setDogOftenFeed, setDogOftenWalk, setDogOftenVet]}
+          pet="dog"
+          step={step}
           setStep={setStep}
         />
       )}
-      {step === "dog-last" && (
-        <DogLast
-          setDogLastFeed={setDogLastFeed}
-          setDogLastWalk={setDogLastWalk}
-          setDogLastVet={setDogLastVet}
+      {step === "dog-second" && (
+        <Pet
+          petSetters={[setDogLastFeed, setDogLastWalk, setDogLastVet]}
+          pet="dog"
+          step={step}
           setStep={setStep}
         />
       )}
-      {step === "cat" && (
-        <Cat
+      {step === "cat-first" && (
+        <Pet
+          petSetters={[setCatOftenFeed, setCatOftenBoxChange, setCatOftenVet]}
+          pet="cat"
+          step={step}
           setStep={setStep}
-          setCatOftenFeed={setCatOftenFeed}
-          setCatOftenBoxChange={setCatOftenBoxChange}
-          setCatOftenVet={setCatOftenVet}
         />
       )}
-      {step === "cat-last" && (
-        <CatLast
+      {step === "cat-second" && (
+        <Pet
+          petSetters={[setCatOftenFeed, setCatOftenBoxChange, setCatOftenVet]}
+          pet="cat"
+          step={step}
           setStep={setStep}
-          setCatLastFeed={setCatLastFeed}
-          setCatLastBoxChange={setCatLastBoxChange}
-          setCatLastVet={setCatLastVet}
         />
       )}
-      {step === "pet-created" && <PetCreated navigation={navigation} />}
+      {step === "bird-first" && (
+        <Pet
+          petSetters={[
+            setBirdOftenFeed,
+            setBirdOftenCleanCage,
+            setBirdOftenVet,
+          ]}
+          pet="bird"
+          step={step}
+          setStep={setStep}
+        />
+      )}
+      {step === "bird-second" && (
+        <Pet
+          petSetters={[setBirdLastFeed, setBirdLastCleanCage, setBirdLastVet]}
+          pet="bird"
+          step={step}
+          setStep={setStep}
+        />
+      )}
+      {step === "fish-first" && (
+        <Pet
+          petSetters={[
+            setFishOftenFeed,
+            setFishOftenCleanTank,
+            setFishOftenVet,
+          ]}
+          pet="fish"
+          step={step}
+          setStep={setStep}
+        />
+      )}
+      {step === "fish-second" && (
+        <Pet
+          petSetters={[setFishLastFeed, setFishLastCleanTank, setFishLastVet]}
+          pet="fish"
+          step={step}
+          setStep={setStep}
+        />
+      )}
+      {step === "pet-created" && (
+        <PetCreated
+          dogLastFeed={dogLastFeed}
+          dogLastWalk={dogLastWalk}
+          dogLastVet={dogLastVet}
+          dogOftenFeed={dogOftenFeed}
+          dogOftenWalk={dogOftenWalk}
+          dogOftenVet={dogOftenVet}
+          navigation={navigation}
+        />
+      )}
     </View>
   );
 };

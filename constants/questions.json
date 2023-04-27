@@ -1,0 +1,50 @@
+{
+  "dog": {
+    "dog-first": [
+      "How many times a day you give food",
+      "How many times you go walk with dog?",
+      "How often you go vet"
+    ],
+    "dog-second": [
+      "Last time you gave food",
+      "Last time you walk with dog",
+      "Last time you go vet"
+    ]
+  },
+  "cat": {
+    "cat-first": [
+      "How many times a day you give food",
+      "How many times clean cats box?",
+      "How often you go vet cat"
+    ],
+    "cat-second": [
+      "Last time you gave food",
+      "Last time you cleaned cats box",
+      "Last time you go vet cat"
+    ]
+  },
+  "bird": {
+    "bird-first": [
+      "How many times a day you give food",
+      "How many times clean birds cage?",
+      "How often you go vet bird"
+    ],
+    "bird-second": [
+      "Last time you gave food",
+      "Last time you clean birds cage?",
+      "Last time you go vet bird"
+    ]
+  },
+  "fish": {
+    "fish-first": [
+      "How many times a day you give food",
+      "How many times clean fish tank?",
+      "How often you go vet fish"
+    ],
+    "fish-second": [
+      "Last time you gave food",
+      "Last time you clean fish tank?",
+      "Last time you go vet fish"
+    ]
+  }
+}

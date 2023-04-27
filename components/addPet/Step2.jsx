@@ -7,10 +7,10 @@ const Step2 = ({ setStep }) => {
   };
   return (
     <View>
-      <Button title="Dog" onPress={() => handleStep("dog")} />
-      <Button title="Cat" onPress={() => handleStep("cat")} />
-      <Button title="Fish" onPress={() => handleStep("fish")} />
-      <Button title="Bird" onPress={() => handleStep("bird")} />
+      <Button title="Dog" onPress={() => handleStep("dog-first")} />
+      <Button title="Cat" onPress={() => handleStep("cat-first")} />
+      <Button title="Fish" onPress={() => handleStep("fish-first")} />
+      <Button title="Bird" onPress={() => handleStep("bird-first")} />
     </View>
   );
 };
