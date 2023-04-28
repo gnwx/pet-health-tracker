@@ -1,13 +1,24 @@
 import { Button, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
+import usePetContext from "../hooks/usePetContext";
+import PetCard from "../components/PetCard";
 const Home = ({ navigation }) => {
+  const { pets, clearPets } = usePetContext();
+
   return (
     <View>
-      <Text>Home</Text>
       <Button
         title="Add pet"
         onPress={() => navigation.navigate("AddingPet")}
       />
+      {pets ? (
+        pets.map((pet) => {
+          return <PetCard pet={pet} />;
+        })
+      ) : (
+        <Text>There is no pet! </Text>
+      )}
+      <Button title="clear" onPress={clearPets} />
     </View>
   );
 };

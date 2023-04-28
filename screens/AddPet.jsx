@@ -1,7 +1,6 @@
 import { StyleSheet, View } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 
-import Pet from "../components/addPet/Pet";
 import Form from "../components/addPet/Form";
 
 const AddPet = () => {

@@ -1,15 +1,16 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
-import Input from "../Input";
+import Input from "./Input";
 import questions from "../../constants/questions.json";
 import NextButton from "./NextButton";
 import useFormContext from "../../hooks/useFormContext";
-const Pet = ({ petSetters, pet }) => {
-  const { step, setStep } = useFormContext();
+const Pet = ({ petSetters }) => {
+  const { step, setStep, petType } = useFormContext();
+
   const nextStep = () => {
     let nextStep = "";
     if (step.endsWith("first")) {
-      nextStep = `${pet}-second`;
+      nextStep = `${petType}-second`;
       return nextStep;
     } else if (step.endsWith("second")) {
       nextStep = "pet-created";
@@ -25,7 +26,7 @@ const Pet = ({ petSetters, pet }) => {
     <View>
       {
         // for correct answers petSetters must sorted for questions.
-        questions[pet][step].map((question, idx) => (
+        questions[petType][step].map((question, idx) => (
           <Input key={idx} setter={petSetters[idx]}>
             {question}
           </Input>

@@ -1,6 +1,7 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import useFormContext from "../../hooks/useFormContext";
+import usePetContext from "../../hooks/usePetContext";
 
 const PetCreated = () => {
   const {
@@ -15,11 +16,24 @@ const PetCreated = () => {
     petLastThird,
     setStep,
   } = useFormContext();
+
+  const { createPet } = usePetContext();
+
+  const pet = {
+    petName,
+    petAge,
+    petType,
+    petOftenFeed,
+    petOftenSecond,
+    petOftenThird,
+    petLastFeed,
+    petLastSecond,
+    petLastThird,
+  };
   return (
     <View>
-      <Text>PET CREATED</Text>
-      <Text>PET TYPE:{petName} </Text>
-      <Text>PET TYPE:{petAge} </Text>
+      <Text>PET namee:{petName} </Text>
+      <Text>PET age:{petAge} </Text>
       <Text>PET TYPE:{petType} </Text>
       <Text>OFTENFEED:{petOftenFeed}</Text>
       <Text>OFTEN SECOND:{petOftenSecond}</Text>
@@ -28,6 +42,7 @@ const PetCreated = () => {
       <Text>LAST SECOND:{petLastSecond}</Text>
       <Text>LAST THIRD: {petLastThird}</Text>
       <Button title="Reset" onPress={() => setStep("step-1")} />
+      <Button title="create" onPress={() => createPet(pet)} />
     </View>
   );
 };
