@@ -1,16 +1,19 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import useFormContext from "../../hooks/useFormContext";
 
-const Step2 = ({ setStep }) => {
-  const handleStep = (value) => {
-    setStep(value);
+const Step2 = () => {
+  const { setStep, setPetType } = useFormContext();
+  const handleClick = (step, type) => {
+    setPetType(type);
+    setStep(step);
   };
   return (
     <View>
-      <Button title="Dog" onPress={() => handleStep("dog-first")} />
-      <Button title="Cat" onPress={() => handleStep("cat-first")} />
-      <Button title="Fish" onPress={() => handleStep("fish-first")} />
-      <Button title="Bird" onPress={() => handleStep("bird-first")} />
+      <Button title="Dog" onPress={() => handleClick("dog-first", "dog")} />
+      <Button title="Cat" onPress={() => handleClick("cat-first", "cat")} />
+      <Button title="Fish" onPress={() => handleClick("fish-first", "fish")} />
+      <Button title="Bird" onPress={() => handleClick("bird-first", "bird")} />
     </View>
   );
 };

@@ -5,18 +5,21 @@ import { PetContextProvider } from "./context/PetContext";
 import Home from "./screens/Home";
 import AddPet from "./screens/AddPet";
 import Pet from "./components/addPet/Pet";
+import { FormContextProvider } from "./context/FormContext";
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <PetContextProvider>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="AddingPet" component={AddPet} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <FormContextProvider>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="AddingPet" component={AddPet} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </FormContextProvider>
     </PetContextProvider>
   );
 }

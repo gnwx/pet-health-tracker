@@ -1,8 +1,8 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const NextButton = ({ title = "Next", step, setStep }) => {
-  return <Button title={title} onPress={() => setStep(step)} />;
+const NextButton = ({ title = "Next", handlePress }) => {
+  return <Button title={title} onPress={handlePress} />;
 };
 
 export default NextButton;

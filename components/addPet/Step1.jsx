@@ -1,19 +1,26 @@
 import { StyleSheet, TextInput, View, Button, Text } from "react-native";
 import React from "react";
+import Input from "../Input";
+import NextButton from "./NextButton";
+import useFormContext from "../../hooks/useFormContext";
 
-const Step1 = ({ setStep }) => {
+const Step1 = () => {
+  const { setPetName, setPetAge, setStep } = useFormContext();
+
+  const toStep2 = () => {
+    setStep("step-2");
+  };
+
   return (
     <View>
       <View>
-        <Text>Pet name</Text>
-        <TextInput />
+        <Input setter={setPetName}>Pet Name </Input>
       </View>
       <View>
-        <Text>Pet age</Text>
-        <TextInput />
+        <Input setter={setPetAge}>Pet Age</Input>
       </View>
       <View>
-        <Button title="Next" onPress={() => setStep("step-2")} />
+        <NextButton handlePress={toStep2} />
       </View>
     </View>
   );
