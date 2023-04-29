@@ -33,7 +33,7 @@ const Pet = ({ petSetters }) => {
         ))
       }
 
-      <NextButton title="next" handlePress={handlePress} />
+      <NextButton handlePress={handlePress} />
     </View>
   );
 };
